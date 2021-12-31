@@ -1,5 +1,5 @@
 # websocket-audio-stream
-pyaudio &amp; websocket to stream real-time audio to speakers
+pyaudio &amp; websocket to stream real-time audio to speakers or record to wav file.
 
 Works with FreeSWITCH [mod_audio_fork](https://github.com/drachtio/drachtio-freeswitch-modules/blob/main/modules/mod_audio_fork/README.md)
 
