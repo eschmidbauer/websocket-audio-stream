@@ -5,10 +5,14 @@ import numpy as np
 import scipy.io.wavfile
 
 sr = 8000
+encode_float = True
 
 async def audio_stream(websocket, path):
     sound = np.array([], dtype=np.int16)
+    if encode_float == True:
+        sound = np.array([], dtype=np.float32)
 
+    print(f"starting recording")
     while True:
         try:
 
@@ -17,6 +21,9 @@ async def audio_stream(websocket, path):
                 continue
 
             audio = np.frombuffer(message, dtype=np.int16)
+            if encode_float == True:
+                audio = audio.astype(np.float32)/32767.0
+
             sound = np.append(sound, audio)
 
         except websockets.ConnectionClosed:
